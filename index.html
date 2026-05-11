@@ -1,1 +1,450 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
+<title>MALUM Reviews</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#0d0d0d;
+    color:#f5f5f5;
+    font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;
+    line-height:1.8;
+}
+
+/* HEADER */
+
+.header{
+    padding:90px 20px 70px;
+    text-align:center;
+    border-bottom:1px solid #222;
+}
+
+.header h1{
+    font-size:54px;
+    letter-spacing:8px;
+    margin-bottom:18px;
+    font-weight:600;
+}
+
+.header p{
+    color:#999;
+    font-size:15px;
+    letter-spacing:1px;
+}
+
+/* GRID */
+
+.grid{
+    width:92%;
+    max-width:1400px;
+    margin:70px auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+/* CARD */
+
+.card{
+    background:#151515;
+    border-radius:20px;
+    overflow:hidden;
+    transition:0.4s;
+    cursor:pointer;
+    border:1px solid #222;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    border:1px solid #444;
+}
+
+.poster{
+    width:100%;
+    height:420px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:24px;
+}
+
+.title{
+    font-size:28px;
+    margin-bottom:12px;
+    font-weight:600;
+}
+
+.subtitle{
+    color:#888;
+    margin-bottom:22px;
+    font-size:14px;
+}
+
+.quote{
+    font-size:17px;
+    color:#ddd;
+    border-left:2px solid #777;
+    padding-left:14px;
+    margin-bottom:22px;
+}
+
+.reviewers{
+    color:#777;
+    font-size:14px;
+}
+
+/* REVIEW SECTION */
+
+.review-section{
+    display:none;
+    width:90%;
+    max-width:950px;
+    margin:0 auto 120px;
+    animation:fade 0.4s ease;
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.review-header{
+    margin-bottom:50px;
+}
+
+.review-header h2{
+    font-size:42px;
+    margin-bottom:14px;
+}
+
+.review-header p{
+    color:#999;
+}
+
+/* CRITIC */
+
+.critic{
+    margin-bottom:90px;
+    padding-bottom:60px;
+    border-bottom:1px solid #222;
+}
+
+.critic-name{
+    font-size:24px;
+    margin-bottom:10px;
+}
+
+.critic-role{
+    color:#888;
+    margin-bottom:28px;
+    font-size:14px;
+}
+
+.big-quote{
+    font-size:34px;
+    line-height:1.4;
+    margin-bottom:38px;
+    color:white;
+    font-weight:300;
+}
+
+.review-text{
+    color:#d6d6d6;
+    font-size:17px;
+}
+
+/* BUTTON */
+
+.close-btn{
+    margin-top:20px;
+    background:none;
+    border:1px solid #555;
+    color:white;
+    padding:12px 22px;
+    border-radius:999px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.close-btn:hover{
+    background:white;
+    color:black;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.header h1{
+    font-size:38px;
+    letter-spacing:4px;
+}
+
+.poster{
+    height:360px;
+}
+
+.big-quote{
+    font-size:26px;
+}
+
+.review-header h2{
+    font-size:34px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>REVIEWS</h1>
+    <p>Guest Critics & Film Notes</p>
+</div>
+
+<!-- GRID -->
+
+<div class="grid">
+
+<!-- FILM 1 -->
+
+<div class="card" onclick="openReview('review1')">
+
+    <img src="YOUR-POSTER.jpg" class="poster">
+
+    <div class="card-content">
+
+        <div class="title">水管嬰兒</div>
+
+        <div class="subtitle">
+            1 Critics Reviews
+        </div>
+
+        <div class="quote">
+            ❝《水管嬰兒》的身體恐懼與母職神話 ❞
+        </div>
+
+        <div class="reviewers">
+            by 黑糖導演 黃嘉俊
+        </div>
+
+    </div>
+
+</div>
+
+<!-- FILM 2 -->
+
+<div class="card" onclick="openReview('review2')">
+
+    <img src="YOUR-POSTER2.jpg" class="poster">
+
+    <div class="card-content">
+
+        <div class="title">透明的孩子</div>
+
+        <div class="subtitle">
+            1 Critics Reviews
+        </div>
+
+        <div class="quote">
+            ❝《透明的孩子》中的名字、死亡與存在重量 ❞
+        </div>
+
+        <div class="reviewers">
+            by 黑糖導演 黃嘉俊
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+<!-- REVIEW SECTION 1 -->
+
+<div class="review-section" id="review1">
+
+    <div class="review-header">
+
+        <h2>《水管嬰兒》</h2>
+
+        <p>
+            Reviews & Critical Notes
+        </p>
+
+        <button class="close-btn" onclick="closeReview('review1')">
+            Close
+        </button>
+
+    </div>
+
+    <!-- CRITIC 1 -->
+
+    <div class="critic">
+
+        <div class="critic-name">
+            王XX
+        </div>
+
+        <div class="critic-role">
+            影評人 / 策展人
+        </div>
+
+        <div class="big-quote">
+            ❝ 她們不是壞掉，只是長期漏水。 ❞
+        </div>
+
+        <div class="review-text">
+
+            《水管嬰兒》透過壓迫性的空間設計，
+            將女性身體與社會結構相互重疊，
+            呈現出一種令人窒息的觀看經驗。
+
+            水管不只是場景，
+            更像一套持續運作的人體系統。
+
+            （把完整影評貼這裡）
+
+        </div>
+
+    </div>
+
+    <!-- CRITIC 2 -->
+
+    <div class="critic">
+
+        <div class="critic-name">
+            林XX
+        </div>
+
+        <div class="critic-role">
+            電影研究者
+        </div>
+
+        <div class="big-quote">
+            ❝ 像被困在都市下水道裡的胎夢。 ❞
+        </div>
+
+        <div class="review-text">
+
+            （第二位影評人的完整影評）
+
+        </div>
+
+    </div>
+
+    <!-- CRITIC 3 -->
+
+    <div class="critic">
+
+        <div class="critic-name">
+            陳XX
+        </div>
+
+        <div class="critic-role">
+            導演 / 評論人
+        </div>
+
+        <div class="big-quote">
+            ❝ 每個角色都像正在慢慢滲漏。 ❞
+        </div>
+
+        <div class="review-text">
+
+            （第三位影評人的完整影評）
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- REVIEW SECTION 2 -->
+
+<div class="review-section" id="review2">
+
+    <div class="review-header">
+
+        <h2>《作品二》</h2>
+
+        <p>
+            Reviews & Critical Notes
+        </p>
+
+        <button class="close-btn" onclick="closeReview('review2')">
+            Close
+        </button>
+
+    </div>
+
+    <div class="critic">
+
+        <div class="critic-name">
+            XXX
+        </div>
+
+        <div class="critic-role">
+            Film Critic
+        </div>
+
+        <div class="big-quote">
+            ❝ 在沉默中慢慢崩解。 ❞
+        </div>
+
+        <div class="review-text">
+
+            （作品二影評）
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+function openReview(id){
+
+    const sections = document.querySelectorAll('.review-section');
+
+    sections.forEach(section=>{
+        section.style.display = 'none';
+    });
+
+    document.getElementById(id).style.display = 'block';
+
+    document.getElementById(id).scrollIntoView({
+        behavior:'smooth'
+    });
+
+}
+
+function closeReview(id){
+
+    document.getElementById(id).style.display='none';
+
+}
+
+</script>
+
+</body>
+</html>
